@@ -1,0 +1,334 @@
+<?php
+/**
+ * Implements hook_permission().
+ */
+function bsc_theme_colors_permission() {
+  return array(
+    'administer bsc theme color settings' => array(
+      'title' => t('Administer BSC Theme Color Settings'),
+      'description' => t('Perform administration tasks for the BSC project.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function bsc_theme_colors_menu() {
+  $items['admin/bsc_theme_colors'] = array(
+    'title' => 'BSC Theme Colors',
+		'description' => t('Collection of colors for the Bootstrap theme'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('bsc_theme_colors_form'),
+    'access arguments' => array('administer bsc theme color settings'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  
+  return $items;
+}
+
+/**
+ * Implements hook_admin().
+ */
+function bsc_theme_colors_form($form, &$form_state) {
+  $form = array();
+  $form['site_wide'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Site Wide'),
+  );
+	$form['site_wide']['bsc_body_bg'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Body BG'),
+    '#default_value' => variable_get('bsc_body_bg'),
+	);
+  
+	$form['site_wide']['bsc_menu_gradient_top'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Primary Menu Gradient Top'),
+    '#default_value' => variable_get('bsc_menu_gradient_top'),
+	);
+  
+	$form['site_wide']['bsc_menu_gradient_bottom'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Primary Menu Gradient Bottom'),
+    '#default_value' => variable_get('bsc_menu_gradient_bottom'),
+	);
+  
+	$form['site_wide']['heading_text_color'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Heading Text Color'),
+    '#default_value' => variable_get('heading_text_color'),
+	);
+  
+	$form['site_wide']['link_color'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Link Color'),
+    '#default_value' => variable_get('link_color'),
+	);
+  
+	$form['site_wide']['link_hover_color'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Link Hover Color'),
+    '#default_value' => variable_get('link_hover_color'),
+	);
+  
+	$form['site_wide']['link_hover_underline'] = array(
+		'#type' => 'checkbox',
+		'#title' => t('Underline Link on Hover'),
+    '#default_value' => variable_get('link_hover_underline'),
+	);
+  
+	$form['site_wide']['page_wrapper_bg'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Page Wrapper BG'),
+    '#default_value' => variable_get('page_wrapper_bg'),
+	);
+  
+	$form['site_wide']['page_wrapper_border_radius'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Page Wrapper Border Radius'),
+    '#default_value' => variable_get('page_wrapper_border_radius'),
+	);
+  
+	$form['site_wide']['page_wrapper_border_top_width'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Page Wrapper Border Top Width'),
+    '#default_value' => variable_get('page_wrapper_border_top_width'),
+	);
+  
+	$form['site_wide']['page_wrapper_border_color'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Page Wrapper Border Color'),
+    '#default_value' => variable_get('page_wrapper_border_color'),
+	);
+  
+  $form['buttons'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Buttons'),
+  );
+  
+	$form['buttons']['button_success_bg'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Button Success BG'),
+    '#default_value' => variable_get('button_success_bg'),
+	);
+  
+	$form['buttons']['button_success_border'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Button Success Border'),
+    '#default_value' => variable_get('button_success_border'),
+	);
+  
+	$form['buttons']['button_success_color'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Button Success Color'),
+    '#default_value' => variable_get('button_success_color'),
+	);
+  
+	$form['buttons']['button_success_hover_bg'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Button Success Hover BG'),
+    '#default_value' => variable_get('button_success_hover_bg'),
+	);
+  
+	$form['buttons']['button_primary_bg'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Button Primary BG'),
+    '#default_value' => variable_get('button_primary_bg'),
+	);
+  
+	$form['buttons']['button_primary_border'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Button primary Border'),
+    '#default_value' => variable_get('button_primary_border'),
+	);
+  
+	$form['buttons']['button_primary_color'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Button primary Color'),
+    '#default_value' => variable_get('button_primary_color'),
+	);
+  
+	$form['buttons']['button_primary_hover_bg'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Button primary Hover BG'),
+    '#default_value' => variable_get('button_primary_hover_bg'),
+	);
+  
+  $form['footer'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Footer'),
+  );
+	$form['footer']['footer_bg'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Footer BG'),
+    '#default_value' => variable_get('footer_bg'),
+	);
+	$form['footer']['footer_text_color'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Footer Text Color'),
+    '#default_value' => variable_get('footer_text_color'),
+	);
+	$form['footer']['footer_link_color'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Footer Link Color'),
+    '#default_value' => variable_get('footer_link_color'),
+	);
+	$form['footer']['footer_link_hover_color'] = array(
+		'#type' => 'jquery_colorpicker',
+		'#title' => t('Footer Link Hover Color'),
+    '#default_value' => variable_get('footer_link_hover_color'),
+	);
+	$form['footer']['footer_box_shadow'] = array(
+		'#type' => 'checkbox',
+		'#title' => t('Footer Box Shadow'),
+    '#default_value' => variable_get('footer_box_shadow'),
+	);
+  
+	$form['backup'] = array(
+		'#type' => 'checkbox',
+		'#title' => t('Backup the last stylesheet'),
+    '#default_value' => variable_get('backup'),
+	);
+  
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+  );
+
+  
+  return $form;
+}
+
+function bsc_theme_colors_form_submit($form, &$form_state) {
+
+  foreach ($form_state['values'] as $key => $value) {
+    switch ($key):
+      case 'form_id':
+      break;
+      case 'form_token':
+      break;
+      case 'form_build_id':
+      break;
+      case 'submit':
+      break;
+      case 'op':
+      break;
+      default:
+        variable_set($key, $value);
+      $bsc_ . $key = $value;
+    endswitch;
+  }
+ 
+  //css helper functions
+  function gradient($top, $bottom) {
+    return "
+      background-color: #".$top.";
+      background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #".$top."),
+        color-stop(1, #".$bottom.")
+      );
+      background-image: -o-linear-gradient(bottom, #".$top." 0%, #".$bottom." 100%);
+      background-image: -moz-linear-gradient(bottom, #".$top." 0%, #".$bottom." 100%);
+      background-image: -webkit-linear-gradient(bottom, #".$top." 0%, #".$bottom." 100%);
+      background-image: -ms-linear-gradient(bottom, #".$top." 0%, #".$bottom." 100%);
+      background-image: linear-gradient(to bottom, #".$top." 0%, #".$bottom." 100%);
+    ";
+  } 
+  
+  $file = "
+body {
+  background-color: #" . variable_get('bsc_body_bg') . "!important;
+}
+
+.footer {
+    background: none repeat scroll 0 0 #".variable_get('footer_bg').";
+    "
+    .(variable_get('footer_box_shadow') == 1 ? "box-shadow: 0 0 100px rgba(0, 0, 0, 0.2) inset;" : "box-shadow: none;").
+    "
+    color: #".variable_get('footer_text_color').";
+}
+
+.footer a {
+    color: #".variable_get('footer_link_color').";
+}
+
+.footer a:hover {
+    color: #".variable_get('footer_link_hover_color').";
+}
+
+.bootstrap-nav {
+  ".gradient(variable_get('bsc_menu_gradient_top'),variable_get('bsc_menu_gradient_bottom'))."
+}
+
+.btn-success {
+  background-color: #".variable_get('button_success_bg').";
+  border-color: #".variable_get('button_success_border').";
+  color: #".variable_get('button_success_color').";
+}
+
+.btn-success:hover {
+  background-color: #".variable_get('button_success_hover_bg').";
+}
+
+.btn-primary {
+  background-color: #".variable_get('button_primary_bg').";
+  border-color: #".variable_get('button_primary_border').";
+  color: #".variable_get('button_primary_color').";
+}
+
+.btn-primary:hover {
+  background-color: #".variable_get('button_primary_hover_bg').";
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #".variable_get('heading_text_color').";
+}
+
+a {
+  color: #".variable_get('link_color').";
+}
+
+a:hover {
+  color: #".variable_get('link_hover_color').";
+    "
+    .(variable_get('link_hover_underline') == 1 ? "text-decoration: underline;" : "text-decoration: none;").
+    "
+}
+
+.page-wrapper {
+    background: none no-repeat scroll right 0 #".variable_get('page_wrapper_bg').";
+    border-radius: ".variable_get('page_wrapper_border_radius')." ".variable_get('page_wrapper_border_radius')." 0 0;
+    border-top: ".variable_get('page_wrapper_border_top_width')." solid #".variable_get('page_wrapper_border_color').";
+}
+  ";
+  
+  $module_path = drupal_get_path('module', 'bsc_theme_colors');
+  $stylesheet = 'public://bsc_theme_colors/bsc_theme_colors.css';
+  $current_date = format_date(time(), 'custom', 'hismdY');
+  $stylesheet_file = file_get_contents($stylesheet);
+  $backups_path = 'public://bsc_theme_colors/backups/';
+  file_prepare_directory($backups_path, FILE_CREATE_DIRECTORY);
+  $style_path = 'public://bsc_theme_colors/backups/';
+  file_prepare_directory($style_path, FILE_CREATE_DIRECTORY);
+  $old_file_backup = $files_path . 'bsc_theme_colors.css.'.$current_date.'.bak';
+  
+  if (variable_get('backup') == 1) {
+    file_unmanaged_save_data($stylesheet_file, $old_file_backup, $replace = FILE_EXISTS_REPLACE);
+  }
+
+  file_unmanaged_save_data($file, $stylesheet, $replace = FILE_EXISTS_REPLACE);
+  drupal_flush_all_caches();
+  drupal_goto('<front>');
+  
+}
+
+function bsc_theme_colors_preprocess(&$variables) {
+    $path = $_GET['q'];
+    if ($GLOBALS['theme'] == 'bootstrap_subtheme') {
+    drupal_add_css(file_create_url('public://bsc_theme_colors/bsc_theme_colors.css'), array('group' => CSS_THEME, 'WEIGHT' => 999));  
+    }
+}
