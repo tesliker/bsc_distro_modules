@@ -1,0 +1,76 @@
+
+body {
+  background-color: #ff0000!important;
+}
+
+.footer {
+    background: none repeat scroll 0 0 #29ad29;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.2) inset;
+    color: #98a11a;
+}
+
+.footer a {
+    color: #86b3af;
+}
+
+.footer a:hover {
+    color: #69f06e;
+}
+
+.bootstrap-nav {
+  
+      background-color: #2531cf;
+      background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #2531cf),
+        color-stop(1, #1e1a69)
+      );
+      background-image: -o-linear-gradient(bottom, #2531cf 0%, #1e1a69 100%);
+      background-image: -moz-linear-gradient(bottom, #2531cf 0%, #1e1a69 100%);
+      background-image: -webkit-linear-gradient(bottom, #2531cf 0%, #1e1a69 100%);
+      background-image: -ms-linear-gradient(bottom, #2531cf 0%, #1e1a69 100%);
+      background-image: linear-gradient(to bottom, #2531cf 0%, #1e1a69 100%);
+    
+}
+
+.btn-success {
+  background-color: #db29db;
+  border-color: #8f118f;
+  color: #;
+}
+
+.btn-success:hover {
+  background-color: #61205f;
+}
+
+.btn-primary {
+  background-color: #fcd077;
+  border-color: #f5e42e;
+  color: #;
+}
+
+.btn-primary:hover {
+  background-color: #f0f08d;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #fc6060;
+}
+
+a {
+  color: #ad3ead;
+}
+
+a:hover {
+  color: #751575;
+    text-decoration: underline;
+}
+
+.page-wrapper {
+    background: none no-repeat scroll right 0 #a8a8a8;
+    border-radius: 10px 10px 0 0;
+    border-top: 5px solid #37d67c;
+}
+  

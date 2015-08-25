@@ -1,0 +1,5 @@
+name = BSC Theme Colors
+description = Colors for the BSC Theme that comes with it.
+package = custom
+core = 7.x
+version = 7.x-1.0
